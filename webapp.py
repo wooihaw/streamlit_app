@@ -1,8 +1,7 @@
 import streamlit as st
-from pickle import load
+from joblib import load
 
-with open('lgr_model.job', 'rb') as f:
-    lgr = load(f)
+lgr = load('lgr_model.job')
 
 st.title('Gender Classification')
 
