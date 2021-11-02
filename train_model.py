@@ -1,7 +1,7 @@
 from sklearn.model_selection import train_test_split as split, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from pandas import read_csv
-from joblib import dump
+from pickle import dump
 
 df = read_csv('../data/genders_heights_weights.csv')
 X =  df.values[:, 1:]
@@ -18,4 +18,5 @@ print(gs.best_params_, gs.best_score_)
 lgr = LogisticRegression(**gs.best_params_).fit(X_train, y_train)
 print(lgr.score(X_test, y_test))
 
-dump(lgr, "lgr_model.job")
+with open("lgr_model.job", 'wb') as f:
+    dump(lgr, f)
