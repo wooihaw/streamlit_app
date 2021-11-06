@@ -58,7 +58,7 @@ This repository contains the Python script that demonstrates the implementation 
    | :------------- | :-------------------------------------------------------- |
    | train_model.py | Train a logistic regression model and save it             |
    | webapp.py      | Launch a webapp for classiciation using the trained model |
-2. To train the model, download the dataset from the following link and save in the same folder as the Python scripts.
-   https://raw.githubusercontent.com/wooihaw/datasets/main/heights_weights_genders.csv
+2. To train the model, download the dataset from the following link and save in the same folder as the Python scripts:
+   - https://raw.githubusercontent.com/wooihaw/datasets/main/heights_weights_genders.csv
 3. To launch the webapp:
    - streamlit run webapp.py
