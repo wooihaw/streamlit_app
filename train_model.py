@@ -15,7 +15,7 @@ with open(csv_fname, "r") as csv_file:
         for key, field in zip(header, row):
             data[key] = data.get(key, []) + [field]
 
-X = [[i, j] for i, j in zip(data["Height(cm)"], data["Weight(kg)"])]
+X = [[float(i), float(j)] for i, j in zip(data["Height(cm)"], data["Weight(kg)"])]
 y = data["Gender"]
 X_train, X_test, y_train, y_test = split(
     X, y, stratify=y, test_size=0.3, random_state=42
@@ -23,7 +23,8 @@ X_train, X_test, y_train, y_test = split(
 
 params = {}
 params["C"] = [0.001, 0.01, 0.1, 1, 10, 100]
-params["penalty"] = ["l1", "l2"]
+params["penalty"] = ['none', "l2"]
+params["solver"] = ["lbfgs", "saga", "newton-cg", "sag"]
 gs = GridSearchCV(LogisticRegression(), params, n_jobs=-1, verbose=1).fit(
     X_train, y_train
 )
