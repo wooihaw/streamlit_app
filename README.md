@@ -19,8 +19,8 @@ This repository contains the Python script that demonstrates the implementation 
 ## 2.1. Create virtual environment with Conda
 1. Follow this method if you have installed Anaconda.
 2. Launch Anaconda Prompt.
-3. Create a cirtual environment called py4iot with Python 3.9:
-   - conda create -n streamlit_app python=3.9
+3. Create a virtual environment called py4iot with Python 3.11:
+   - conda create -n streamlit_app python=3.11
 4. After the virtual environment is created, activate it:
    - conda activate streamlit_app
 5. Change to the folder with the extracted repository.
