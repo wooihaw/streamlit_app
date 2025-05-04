@@ -1,69 +1,54 @@
-# Table of Contents <!-- omit in toc -->
-- [1. Introduction](#1-introduction)
-- [2. Preparing to run the sample codes](#2-preparing-to-run-the-sample-codes)
-  - [2.1. Create virtual environment with Conda](#21-create-virtual-environment-with-conda)
-  - [2.2. Create virtual environment with Python venv](#22-create-virtual-environment-with-python-venv)
-  - [2.3. Install only the required Python modules and packages](#23-install-only-the-required-python-modules-and-packages)
-- [3. Description of Python scripts](#3-description-of-python-scripts)
-- [4. Screenshots](#4-screenshots)
+## Introduction
+This repository contains the Python script that demonstrates the implementation of a machine learning webapp using Streamlit. The environment and dependencies are now managed using [`uv`](https://github.com/astral-sh/uv), a modern and fast Python package manager.
 
+---
 
-# 1. Introduction
-This repository contains the Python script that demonstrates the implementation of a machine learning webapp using Streamlit.
+## Getting Started
 
-# 2. Preparing to run the sample codes
-1. Clone this repository or download the repository as a zip file.
-2. If the repository is downloaded as a zip file, extract the zip file into its own folder.
-3. Follow one of the methods below to create a virtual environment.
+Follow these instructions to set up and run the project using `uv`.
 
-## 2.1. Create virtual environment with Conda
-1. Follow this method if you have installed Anaconda.
-2. Launch Anaconda Prompt.
-3. Create a virtual environment called streamlit_app with Python 3.11:
-   - conda create -n streamlit_app python=3.11
-4. After the virtual environment is created, activate it:
-   - conda activate streamlit_app
-5. Change to the folder with the extracted repository.
-6. Install the required Python modules and packages:
-   - python -m pip install -r requirements.txt
-7. To deactivate the virtual environment:
-   - conda deactivate
+### Prerequisites
 
-## 2.2. Create virtual environment with Python venv
-1. Launch a terminal/command prompt.
-2. Change to the folder with the extracted repository.
-3. Create a virtual environment:
-    - python -m venv env
-4. Once the virtual environment has been created, there will be a folder called "env" in the current folder.
-5. To activate the virtual environment in Windows:
-   - cd env\Scripts
-   - activate
-   - cd ..\\..
-6. To activate the virtual environment in Linux:
-   - souce env/bin/activate
-7. Install the required Python modules and packages:
-   - python -m pip install -r requirements.txt
-8. To deactivate the virtual environment in Windows or Linux:
-   - deactivate
+- **Python 3.12 or higher** must be installed on your system. You can download it from [https://www.python.org/downloads/](https://www.python.org/downloads/).
+- Install `uv` by following the instructions from the official GitHub page:  
+  [https://github.com/astral-sh/uv#installation](https://github.com/astral-sh/uv#installation)
 
-## 2.3. Install only the required Python modules and packages
-1. Follow this method if you do not wish to create a virtual environment.
-2. Launch a terminal/command prompt.
-3. Install the required Python modules and packages:
-   - python -m pip install numpy scipy scikit-learn streamlit
+#### Install `uv`
 
-# 3. Description of Python scripts
+- **Linux/macOS**:
+  ```bash
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  ```
+
+- **Windows (PowerShell)**:
+  ```powershell
+  irm https://astral.sh/uv/install.ps1 | iex
+  ```
+
+---
+
+## Running the Project
+
 1. The following table lists the Python scripts in this repository and describes their roles.
    | Filename       | Description                                               |
    | :------------- | :-------------------------------------------------------- |
    | train_model.py | Train a logistic regression model and save it             |
    | webapp.py      | Launch a webapp for classiciation using the trained model |
-2. Download the dataset from the following link into the same folder as the Python scripts:
-   - https://raw.githubusercontent.com/wooihaw/datasets/main/heights_weights_genders.csv
-3. Once the dataset is downloaded, train the model:
-   - python train_model.py
-4. To launch the webapp:
-   - streamlit run webapp.py
+2. Train the model:  
+   ```bash
+   uv run train_model.py
+   ```
+3. Run the web application:  
+   ```bash
+   uv run streamlit run webapp.py
+   ```
+
+This command will:
+- Automatically create a virtual environment in `.venv` if it doesn't exist
+- Install all dependencies from `pyproject.toml` (and `uv.lock` if present)
+- Run the script inside the virtual environment
+
+---
 
 # 4. Screenshots
 ![screenshot 1](images/screenshot1.jpg)
